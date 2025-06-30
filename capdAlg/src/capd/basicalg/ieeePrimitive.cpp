@@ -216,17 +216,17 @@ namespace basicalg{
   
 		char expBuf[4];
 
-		std::sprintf(expBuf,"%03x",f.ieee.expo);
+		std::snprintf(expBuf,4,"%03x",f.ieee.expo);
 
 		os << (&expBuf[0]) << ':';
 
 		char mant0Buf[6];
-		std::sprintf(mant0Buf,"%05x",f.ieee.mant0);
+		std::snprintf(mant0Buf,6,"%05x",f.ieee.mant0);
 
 		os << (&mant0Buf[0]);
 
 		char mant1Buf[9];
-		std::sprintf(mant1Buf,"%08x",f.ieee.mant1);
+		std::snprintf(mant1Buf,9, "%08x",f.ieee.mant1);
 
 		os << (&mant1Buf[0]);
 	}
@@ -261,12 +261,12 @@ namespace basicalg{
   
 		char expBuf[3];
 
-		std::sprintf(expBuf,"%02x",f.ieee.expo);
+		std::snprintf(expBuf,3,"%02x",f.ieee.expo);
 
 		os << (&expBuf[0]) << ':';
 
 		char mantBuf[7];
-		std::sprintf(mantBuf,"%06x",f.ieee.mant);
+		std::snprintf(mantBuf,7,"%06x", f.ieee.mant);
 
 		os << (&mantBuf[0]);
 	}
