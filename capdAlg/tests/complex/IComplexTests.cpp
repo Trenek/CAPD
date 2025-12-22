@@ -114,6 +114,18 @@ BOOST_AUTO_TEST_CASE( functionsTest)
 {
 }
 
+BOOST_AUTO_TEST_CASE( powerTest)
+{
+  IComplex a{2.0, 0.0};
+  for(int i=-10; i<10; i++){
+  	BOOST_CHECK_EQUAL(power(a,i), IComplex(power(2.0, i), 0.0));
+        std::cout << power(a,i) << std::endl;
+  }
+  IComplex b{0.0, 1.0};
+  BOOST_CHECK_EQUAL(power(b,2), IComplex(-1.0, 0.0));
+  BOOST_CHECK_EQUAL(power(b,3), IComplex(0.0, -1.0));
+  BOOST_CHECK_EQUAL(power(b,4), IComplex(1.0, 0.0));
+}
 
   void test2(
     double intervalSize = 0.1,
