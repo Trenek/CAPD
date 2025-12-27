@@ -18,9 +18,11 @@
 #ifndef CAPD_CAPDLIB_H
 #define CAPD_CAPDLIB_H
 
-
+// capdAlg
 #include "capd/intervals/lib.h"
 #include "capd/vectalg/lib.h"
+#include "capd/fields/lib.h"
+// capdDynSys
 #include "capd/map/lib.h"
 #include "capd/diffAlgebra/lib.h"
 #include "capd/dynset/lib.h"

@@ -156,7 +156,7 @@ public:
 //            }
 //            out << z.im << "i";
 //        }
-       out <<"(" << z.re <<", " << z.im << ")";
+       out <<"(" << z.re <<"," << z.im << ")";
         return out;
     }
 
@@ -247,16 +247,25 @@ class Complex<long double> : public std::complex<long double> {
       return Complex<T>(intervalHull(a.real(),b.real()),intervalHull(a.imag(),b.imag()));
     }
 
-/// TODO: this is a naive implementation. Should be improved.
+    // Exponentiation by squaring with constant auxiliary memory
+    // see https://en.wikipedia.org/wiki/Exponentiation_by_squaring
     template <typename T>
-    inline Complex<T> power(const Complex<T> & x, int n){
-        if(n<0)
-            throw std::runtime_error("power implemented only for n>=0");
+    inline Complex<T> power(Complex<T>  x, int n){
         Complex<T> res = capd::TypeTraits<Complex<T> >::one();
-        for(int i=0; i<n; i++){
-            res *= x;
+        if(n==0)
+            return res;
+        if(n<0){
+            x = res / x;
+            n = -n;
         }
-        return res;
+        while(n>1){
+            if((n&1)){
+              res *= x;
+            }
+            n >>= 1;
+            x = x * x;
+        }
+        return res*x;
     }
 
     template <typename T>

@@ -29,6 +29,8 @@
 
 #include "capd/multiPrec/mplib.h"
 #include "capd/intervals/mplib.h"
+#include "capd/fields/lib.h"
+
 #include "capd/vectalg/mplib.h"
 #include "capd/diffAlgebra/mplib.h"
 #include "capd/map/mplib.h"
